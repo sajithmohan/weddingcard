@@ -26,7 +26,7 @@ export default {
 }
 @media screen and (min-width: 500px) {
   #stories-list{
-    /* margin-top: 66px; */
+    margin-top: 66px;
   }
 }
 </style>
