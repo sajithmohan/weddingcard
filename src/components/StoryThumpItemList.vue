@@ -1,15 +1,20 @@
 <template>
 <div id="stories-list-wrapper">
   <div id="stories-list">
-    <StoryItem  v-for="index in 10" :key="index"></StoryItem>
+    <StoryThumpItem  v-for="member in members" :key="member.name"></StoryThumpItem>
   </div>
 </div>
 </template>
 <script>
-import StoryItem from './StoryItem'
+import StoryThumpItem from './StoryThumpItem'
 export default {
+  props:{
+    members: {
+      type: Array
+    }
+  },
   components:{
-    StoryItem
+    StoryThumpItem
   }
 }
 </script>
@@ -21,7 +26,7 @@ export default {
     grid-gap: 20px;
     padding: 5px 20px;
     overflow-x: scroll;
-    grid-template-columns: repeat(6, 60px);
+    grid-template-columns: repeat(1000, 55px);
     box-shadow: 0px 2px #EBEDEF;
 }
 @media screen and (min-width: 500px) {

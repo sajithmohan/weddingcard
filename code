@@ -1,0 +1,250 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"EventListener-Optimal": {
+		"prefix": "el-opt",
+		"scope": "typescript",
+		"body": [
+			"import { EventListener, CommandBus } from '@stocard/hermes-bus'",
+			"import { Klio, Logger } from '@stocard/klio'",
+			"import { ${1/.*\\/([^\\/]+)$/$1/} } from '${1}'",
+			"",
+			"class ${TM_FILENAME_BASE} implements EventListener<${1/.*\\/([^\\/]+)$/$1/}> {",
+				"\tprivate _logger: Logger",
+				"",
+				"\tconstructor(private _commandBus: CommandBus) {",
+					  "\t\tthis._logger = Klio.getLoggerForClass(this)",
+				"\t}",
+				"",
+				"\tpublic async onEvent(event: ${1/.*\\/([^\\/]+)$/$1/}): Promise<void> {",
+					"\t\tconst logger = this._logger.child({})",
+					"",
+					"\t\ttry {",
+					"\t\t\t$0",
+					"\t\t} catch (e) {",
+						"\t\t\tlogger.error(",
+						  "\t\t\t\t{",
+								"\t\t\t\t\texception: e",
+							"\t\t\t\t}",
+						"\t\t\t)",
+						"",
+						"\t\t\tthrow e",
+					"\t\t}",
+				"\t}",
+			"}",
+			"",
+			"export { ${TM_FILENAME_BASE} }"
+		],
+		"description": "EventListener"
+  },
+
+  "HermesEventListener": {
+		"prefix": "hermes-eventlistener",
+		"scope": "typescript",
+		"body": [
+			"import { EventListener, CommandBus } from '@stocard/hermes-bus'",
+			"import { Klio, Logger } from '@stocard/klio'",
+			"import { $1 } from '$0'",
+			"",
+			"class ${TM_FILENAME_BASE} implements EventListener<$1> {",
+				"\tprivate _logger: Logger",
+				"",
+				"\tconstructor(private _commandBus: CommandBus) {",
+					  "\t\tthis._logger = Klio.getLoggerForClass(this)",
+				"\t}",
+				"",
+				"\tpublic async onEvent(event: $1): Promise<void> {",
+					"\t\tconst logger = this._logger.child({})",
+					"",
+					"\t\ttry {",
+          "",
+					"\t\t} catch (e) {",
+						"\t\t\tlogger.error(",
+						  "\t\t\t\t{",
+								"\t\t\t\t\texception: e",
+							"\t\t\t\t}",
+						"\t\t\t)",
+						"",
+						"\t\t\tthrow e",
+					"\t\t}",
+				"\t}",
+			"}",
+			"",
+			"export { ${TM_FILENAME_BASE} }"
+		],
+		"description": "EventListener"
+  },
+
+  "HermesCommandHandler": {
+		"prefix": "hermes-commandhandler",
+		"scope": "typescript",
+		"body": [
+			"import { CommandHandler } from '@stocard/hermes-bus'",
+			"import { Klio, Logger } from '@stocard/klio'",
+			"import { $1 } from '$0'",
+			"",
+			"class ${TM_FILENAME_BASE} implements CommandHandler<$1> {",
+				"\tprivate _logger: Logger",
+				"",
+				"\tconstructor() {",
+					  "\t\tthis._logger = Klio.getLoggerForClass(this)",
+				"\t}",
+				"",
+				"\tpublic async handle(command: $1): Promise<void> {",
+					"\t\tconst logger = this._logger.child({})",
+					"",
+					"\t\ttry {",
+          "",
+					"\t\t} catch (e) {",
+						"\t\t\tlogger.error(",
+						  "\t\t\t\t{",
+								"\t\t\t\t\texception: e",
+							"\t\t\t\t}",
+						"\t\t\t)",
+						"",
+						"\t\t\tthrow e",
+					"\t\t}",
+				"\t}",
+			"}",
+			"",
+			"export { ${TM_FILENAME_BASE} }"
+		],
+		"description": "CommandHandler"
+  },
+
+  "HermesFinder": {
+		"prefix": "hermes-finder",
+		"scope": "typescript",
+		"body": [
+			"import { Finder } from '@stocard/hermes-bus'",
+			"import { Klio, Logger } from '@stocard/klio'",
+			"import { $1 } from '$0'",
+			"",
+			"class ${TM_FILENAME_BASE} implements Finder<$1> {",
+				"\tprivate _logger: Logger",
+				"",
+				"\tconstructor() {",
+					  "\t\tthis._logger = Klio.getLoggerForClass(this)",
+				"\t}",
+				"",
+				"\tpublic async find(query: $1): Promise<void> {",
+					"\t\tconst logger = this._logger.child({})",
+					"",
+					"\t\ttry {",
+          "",
+					"\t\t} catch (e) {",
+						"\t\t\tlogger.error(",
+						  "\t\t\t\t{",
+								"\t\t\t\t\texception: e",
+							"\t\t\t\t}",
+						"\t\t\t)",
+						"",
+						"\t\t\tthrow e",
+					"\t\t}",
+				"\t}",
+			"}",
+			"",
+			"export { ${TM_FILENAME_BASE} }"
+		],
+		"description": "Finder"
+  },
+
+  "InversifyDynamicBinding": {
+    "prefix": "inversify-binding-dynamic",
+    "scope": "typescript",
+    "body": [
+      "bind<$1>($1)",
+        "\t.toDynamicValue((context: interfaces.Context) => {",
+          "\t\tconst container = context.container",
+          "\t\t$0",
+        "\t})"
+    ]
+  },
+
+  "DDDEvent": {
+    "prefix": "ddd-event",
+    "scope": "typescript",
+    "body": [
+      "import { DomainEvent } from '@stocard/hermes-common'",
+      "",
+      "class ${TM_FILENAME_BASE} extends DomainEvent {",
+      "\t$0",
+      "}",
+      "",
+      "export { ${TM_FILENAME_BASE} }"
+    ],
+    "description": "DomainEvent boilerplate"
+  },
+
+  "DDDCommand": {
+    "prefix": "ddd-command",
+    "scope": "typescript",
+    "body": [
+      "import { Command } from '@stocard/hermes-common'",
+      "",
+      "class ${TM_FILENAME_BASE} extends Command {",
+      "\t$0",
+      "}",
+      "",
+      "export { ${TM_FILENAME_BASE} }"
+    ]
+  },
+
+  "DDDQuery": {
+    "prefix": "ddd-query",
+    "scope": "typescript",
+    "body": [
+      "import { Query } from '@stocard/hermes-common'",
+      "",
+      "class ${TM_FILENAME_BASE} extends Query {",
+      "\t$0",
+      "}",
+      "",
+      "export { ${TM_FILENAME_BASE} }"
+    ]
+  },
+
+  "DDDValueObject": {
+    "prefix": "ddd-valueobject",
+    "scope": "typescript",
+    "body": [
+      "import { guard } from '@stocard/cerberus'",
+      "",
+      "class ${TM_FILENAME_BASE} {",
+        "\tprivate _value: $1",
+        "\tprivate constructor() { }",
+        "",
+        "\tpublic static createFrom(value: $1): ${TM_FILENAME_BASE} {",
+          "\t\tconst instance = new this()",
+          "\t\tinstance._value = value",
+          "\t\treturn instance",
+        "\t}",
+        "",
+        "\tpublic equals(another${TM_FILENAME_BASE}: ${TM_FILENAME_BASE}): boolean {",
+          "\t\treturn this._value === another${TM_FILENAME_BASE}._value",
+        "\t}",
+        "",
+        "\tget value(): $1 {",
+          "\t\treturn this._value",
+        "\t}",
+      "}",
+      "",
+      "export { ${TM_FILENAME_BASE} }"
+    ]
+  }
+}

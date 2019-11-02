@@ -22,9 +22,10 @@ export default {
 .story-dp-pic {
     width: 54px;
     height: 54px;
-    border-radius: 27px;
-    margin-top: 3px;
-    margin-left: 3px;
+    border: 1px solid #fff;
+    border-radius: 28px;
+    margin-top: 2px;
+    margin-left: 2px;
 }
 
 </style>
