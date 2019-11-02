@@ -28,6 +28,22 @@ export default {
         name: "sajith",
         dp: "https://scontent-frx5-1.cdninstagram.com/vp/3b7b7aae3e544938209e85c923cd9b7a/5E2BFF4B/t51.2885-19/s150x150/53506516_631844110571928_1075002637419544576_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com",
         stories:[
+
+          {
+            id: 5,
+            url: "/assets/status/vid100.mp4",
+            type: "video",
+          },
+          {
+            id: 6,
+            url: "/assets/status/vid101.mp4",
+            type: "video",
+          },
+          {
+            id: 7,
+            url: "/assets/status/vid102.mp4",
+            type: "video",
+          },
           {
             id: 1,
             url: "/assets/whatsapp-status.jpeg",

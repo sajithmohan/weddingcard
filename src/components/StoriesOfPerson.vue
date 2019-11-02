@@ -8,7 +8,13 @@
       </div>
     </div>
     <div class="story-content" v-if="currentStory">
-      <img :src="currentStory.url" width="100%" height="100%"/>
+      <img v-if="currentStory.type === 'image'" :src="currentStory.url" width="100%" height="100%"/>
+      <div v-for="story in person.stories" v-bind:key="story.id" >
+      <video v-if="currentStory.type === 'video' && currentStory.id ===story.id"  width="100%" height="100%" autoplay controls >
+        <source :src="story.url" type="video/mp4">
+      </video>
+      </div>
+
     </div>
   </div>
 </template>
@@ -31,6 +37,9 @@ export default {
     });
   },
   computed: {
+    source(){
+      return `<source src="${this.currentStory.url}" type="video/mp4">`
+    }
   },
 }
 </script>
