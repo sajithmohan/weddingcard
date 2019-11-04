@@ -10,7 +10,7 @@
     <div class="story-content" v-if="currentStory">
       <img v-if="currentStory.type === 'image'" :src="currentStory.url" width="100%" height="100%"/>
       <div v-for="story in person.stories" v-bind:key="story.id" >
-      <video v-if="currentStory.type === 'video' && currentStory.id ===story.id"  width="100%" height="100%" autoplay controls loop muted preload="true">
+      <video v-if="currentStory.type === 'video' && currentStory.id ===story.id"  width="100%" height="100%" playsinline autoplay controls loop muted preload="true">
         <source :src="`data:video/mp4;base64,${story.blob}`" type="video/mp4">
       </video>
       </div>
@@ -36,6 +36,7 @@ export default {
     this.person.stories.forEach((story, index) => {
       setTimeout(() => this.currentStory = story,  index * this.storyDisplayTime)
     });
+    setTimeout(() => this.$emit("storyFinished"), this.person.stories.length * this.storyDisplayTime)
   },
   computed: {
     // getUrl(blob){
