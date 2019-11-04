@@ -91,8 +91,8 @@ export default {
       // debugger
       this.members[d.mIndx].stories[d.sIndex].blob = d.blob
     })
-    // this.loaded = true
-    setTimeout(() => this.activeStoryPerson = this.members[0], 500)
+    this.loaded = true
+    setTimeout(() => this.activeStoryPerson = this.members[0], 5000)
   },
   computed: {
     selectedMembers(){
@@ -160,7 +160,6 @@ export default {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  filter: blur(3px);
   top: 30vh;
 }
 
